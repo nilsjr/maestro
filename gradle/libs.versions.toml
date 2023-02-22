@@ -57,6 +57,7 @@ androidx-uiautomator = { module = "androidx.test.uiautomator:uiautomator", versi
 appdirs = { module = "net.harawata:appdirs", version.ref = "appdirs" }
 axml = { module = "de.upb.cs.swt:axml", version.ref = "axml" }
 dadb = { module = "dev.mobile:dadb", version.ref = "dadb" }
+detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }
 google-android-material = { module = "com.google.android.material:material", version.ref = "googleAndroidMaterial" }
 google-findbugs = { module = "com.google.code.findbugs:jsr305", version.ref = "googleFindbugs" }
 google-gson = { module = "com.google.code.gson:gson", version.ref = "googleGson" }
