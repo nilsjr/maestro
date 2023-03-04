@@ -29,10 +29,10 @@ class XCTestIOSDevice(
 ) : IOSDevice {
 
     override fun open() {
-        ensureXCUITestChannel()
+        restartXCTestRunnerService()
     }
 
-    private fun ensureXCUITestChannel() {
+    fun restartXCTestRunnerService() {
         logger.info("[Start] Uninstalling xctest ui runner app on $deviceId")
         installer.killAndUninstall()
         logger.info("[Done] Uninstalling xctest ui runner app on $deviceId")
@@ -91,7 +91,10 @@ class XCTestIOSDevice(
     }
 
     override fun pressKey(code: Int): Result<Unit, Throwable> {
-        error("Not supported")
+        return runCatching {
+            if (code != 40) throw IllegalStateException("XCTest can only press the enter key (code 40)")
+            client.inputText("\n")
+        }
     }
 
     override fun pressButton(code: Int): Result<Unit, Throwable> {
